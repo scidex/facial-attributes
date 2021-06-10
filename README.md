@@ -13,8 +13,12 @@ To check whether things are set up correctly, try executing the following
 command: `ls -la git_repository/data/front/front/A00147.jpg`. It should
 return the file permissions.
 
-The second part is fortunately also quite straightforward to set up.
-Instruction for `virtualenv` are provided below. It should also be possible
+The second part is a bit less straightforward to set up. As the `torch`
+and `torchvision` packages have to be installed separately. See the end
+of this section for instructions on how to do this.
+
+
+Instructions for `virtualenv` are provided below. It should also be possible
 to use `anaconda` but this has not been tested.
 
 Create a python virtual environment and install the packages listed in
@@ -41,6 +45,17 @@ apt install python3-virtualenv
 or via pip:
 ```
 pip3 install virtualenv
+```
+
+If you want to run the network on a GPU, you should run the following:
+```
+pip install torch==1.8.1+cu102 torchvision==0.9.1+cu102 -f https://download.pytorch.org/whl/torch_stable.html
+```
+
+If you only want/can run the network on a CPU, installing the following
+should suffice:
+```
+pip install torch==1.8.1+cpu torchvision==0.9.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 ## Running the project
