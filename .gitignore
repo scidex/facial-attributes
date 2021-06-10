@@ -3,5 +3,8 @@
 # (i.e. trainSet.csv) are not excluded.
 data
 
-# Also ignore the checkpoints, since git already takes care of versioning.
+# Ignore the checkpoints, since git already takes care of versioning.
 .ipynb_checkpoints
+
+# Do not include the virtual environment.
+.venv
