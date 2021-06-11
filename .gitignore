@@ -8,3 +8,6 @@ data
 
 # Do not include the virtual environment.
 .venv
+
+# Do not include the logs to tensorboard.
+runs
