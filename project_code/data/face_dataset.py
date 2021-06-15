@@ -1,6 +1,9 @@
 from torch.utils.data import Dataset
 
 import pandas as pd
+import torch
+import os
+from PIL import Image
 
 class FaceDataset(Dataset):
     """Face dataset."""
