@@ -31,3 +31,23 @@ def filter_without_images(df: pd.DataFrame, image_dir: str):
             with_images = with_images.drop(df.index[index])
 
     return with_images, without_images
+    
+# Splits the given DataFrame into three subset DataFrames
+# based on the provided fractions.
+# Returns a tuple containing the training, validation, and test DataFrames
+# respectively.
+def split_data(data: pd.DataFrame, train_frac, val_frac):
+    # Since we first split into train and test, calculate the relative
+    # fraction of the validation set (such that it'll still containg val_frac
+    # of the original dataset).
+    val_frac = val_frac / train_frac
+
+    # Split the data into train and test set.
+    temp_train_set = data.sample(frac=train_frac, random_state=3072021)
+    test_set = data.drop(temp_train_set.index)
+    
+    # Split the training data into train and validation set.
+    train_set = temp_train_set.sample(frac=1 - val_frac, random_state=14072021)
+    val_set = temp_train_set.drop(train_set.index)
+    
+    return train_set, val_set, test_set
