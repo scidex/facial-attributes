@@ -11,3 +11,6 @@ data
 
 # Do not include the logs to tensorboard.
 runs
+
+# Do not include Python cache.
+__pycache__/
