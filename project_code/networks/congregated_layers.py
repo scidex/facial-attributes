@@ -1,7 +1,9 @@
 # Define more abstract U-Net classes
 # Source: https://github.com/milesial/Pytorch-UNet/blob/6aa14cbbc445672d97190fec06d5568a0a004740/unet/unet_parts.py#L28
 
+import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 # Constructed according to typical behaviour in the U-Net
 # where two convolutions with kernel=3 are stacked.
